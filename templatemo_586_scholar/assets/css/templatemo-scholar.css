@@ -1629,6 +1629,10 @@ Contact Style
   font-weight: 400;
 }
 
+p{
+  color: #fff;
+}
+
 /* 
 ---------------------------------------------
 Footer Style
@@ -1906,3 +1910,20 @@ body {
     width: 95%;
   }
 }
+
+button{
+  border: none;
+  height: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #7a6ad8;
+  padding: 0px 25px;
+  border-radius: 25px;
+  color: #fff;
+  transition: all .4s;
+ 
+  z-index: 3;
+
+
+}
+

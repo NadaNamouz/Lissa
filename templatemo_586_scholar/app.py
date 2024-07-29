@@ -23,11 +23,42 @@ db = firebase.database()
 
 @app.route('/signup', methods=['GET','POST'])
 def signup():
-  return render_template('signup.html')
+  if request.method == 'GET' and session["user"] == None:
+    return render_template("signup.html")
+  elif request.method == 'POST':
+    try:
+      email = request.form['email']
+      password = request.form['password']
+      firstname = request.form['firstname']
+      lastname = request.form['lastname']
+      session['user'] = auth.create_user_with_email_and_password(email, password)
+      session['email'] = email
+      session['password'] = password
+      uid = session['user']['localId']
+      UserInfo = {'firstname':firstname, 'lastname':lastname}
+      db.child('users').child(uid).set(UserInfo)
+      return render_template("index.html")
+    except:
+      return render_template("error.html")
+  else:
+    return render_template("index.html")
+
 
 @app.route('/login', methods=['GET','POST'])
-def logi():
-  return render_template('login.html')
+def login():
+  if request.method == 'GET' and session["user"] == None:
+    return render_template("login.html")
+  elif request.method == 'POST':
+    try:
+      email = request.form['email']
+      password = request.form['password']
+      session['user'] = auth.sign_in_with_email_and_password(email, password)
+      return render_template("index.html")
+    except:
+      return render_template("error.html")
+  else:
+    return render_template ("index.html")
+
 
 @app.route('/index', methods=['GET','POST'])
 def index():

@@ -31,13 +31,13 @@ def signup():
         try:
             email = request.form['email']
             password = request.form['password']
-            firstname = request.form['firstname']
-            lastname = request.form['lastname']
+            # firstname = request.form['firstname']
+            # lastname = request.form['lastname']
             user = auth.create_user_with_email_and_password(email, password)
             session['user'] = user
             uid = user['localId']
-            UserInfo = {'firstname': firstname, 'lastname': lastname}
-            db.child('users').child(uid).set(UserInfo)
+            # UserInfo = {'firstname': firstname, 'lastname': lastname}
+            # db.child('users').child(uid).set(UserInfo)
             return redirect(url_for('index'))
         except Exception as e:
             print(e)
@@ -47,7 +47,6 @@ def signup():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-<<<<<<< Updated upstream
     if request.method == 'GET':
         if not session.get("user"):
             return render_template("login.html")
@@ -68,7 +67,7 @@ def login():
         return redirect(url_for('index'))
 
 @app.route('/index')
-=======
+def index():
   if request.method == 'GET' and session["user"] == None:
     return render_template("login.html")
   elif request.method == 'POST':
@@ -83,63 +82,10 @@ def login():
     return render_template ("index.html")
 
 
-@app.route('/', methods=['GET','POST'])
->>>>>>> Stashed changes
-def index():
-    return render_template('index.html')
-
-<<<<<<< Updated upstream
-# Uncomment and implement these routes if needed
-'''
-@app.route('/practice', methods=['GET', 'POST'])
-=======
-
-@app.route('/practice', methods=['GET','POST'])
->>>>>>> Stashed changes
-def practice():
-    return render_template('practice.html')
-
-<<<<<<< Updated upstream
-@app.route('/meetups', methods=['GET', 'POST'])
-def meetups():
-    return render_template('meetups.html')
-=======
-# @app.route('/meetups', methods=['GET','POST'])
-# def meetups():
-#   return render_template('meetups.html')
->>>>>>> Stashed changes
-
-@app.route('/jobs', methods=['GET', 'POST'])
+@app.route('/jobs')
 def jobs():
-<<<<<<< Updated upstream
-    return render_template('jobs.html')
-=======
   return render_template('jobs.html')
->>>>>>> Stashed changes
 
-@app.route('/community', methods=['GET', 'POST'])
-def community():
-    return render_template('community.html')
-
-<<<<<<< Updated upstream
-@app.route('/chats', methods=['GET', 'POST'])
-def chats():
-    return render_template('chats.html')
-
-@app.route('/connect', methods=['GET', 'POST'])
-def connect():
-    return render_template('connect.html')
-'''
-=======
-# @app.route('/chats', methods=['GET','POST'])
-# def chats():
-#   return render_template('chats.html')
-
-# @app.route('/conncect', methods=['GET','POST'])
-# def connect():
-#   return render_template('connect.html')
-
->>>>>>> Stashed changes
 
 if __name__ == '__main__':
     app.run(debug=True)

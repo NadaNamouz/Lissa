@@ -1,6 +1,16 @@
 from flask import Flask, render_template, redirect, request, session, url_for, jsonify
 import pyrebase
 
+firebaseConfig = {
+  apiKey: "AIzaSyDkOa607l4wYh9BcaAt8LdBuU8CL7wK6N0",
+  authDomain: "case-studies---lissan.firebaseapp.com",
+  databaseURL: "https://case-studies---lissan-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "case-studies---lissan",
+  storageBucket: "case-studies---lissan.appspot.com",
+  messagingSenderId: "904275628053",
+  appId: "1:904275628053:web:f6b945dd1ead37fa6bbe1c"
+}
+
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 app.config['SECRET_KEY'] = '123456'

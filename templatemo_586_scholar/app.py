@@ -66,19 +66,8 @@ def login():
     else:
         return redirect(url_for('index'))
 
-@app.route('/index')
+@app.route('/')
 def index():
-  if request.method == 'GET' and session["user"] == None:
-    return render_template("login.html")
-  elif request.method == 'POST':
-    try:
-      email = request.form['email']
-      password = request.form['password']
-      session['user'] = auth.sign_in_with_email_and_password(email, password)
-      return render_template("index.html")
-    except:
-      return render_template("error.html")
-  else:
     return render_template ("index.html")
 
 

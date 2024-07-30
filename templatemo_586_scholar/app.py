@@ -20,10 +20,6 @@ auth = firebase.auth()
 db = firebase.database()
 
 
-@app.route('/index', methods=['POST','GET'])
-def index():
-  return render_template('index.html')
-
   
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -47,14 +43,9 @@ def signup():
             return redirect(url_for('index'))
         except Exception as e:
             print(e)
-<<<<<<< Updated upstream
-
-
-=======
-            return render_template("error.html")
     else:
         return redirect(url_for('index'))
->>>>>>> Stashed changes
+    return render_template('signup.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -75,6 +66,7 @@ def login():
             print(e)
     else:
         return redirect(url_for('index'))
+    return render_template('login.html')
 
 
 @app.route('/signout')
@@ -91,7 +83,9 @@ def index():
 
 @app.route('/jobs')
 def jobs():
-  return render_template('jobs.html')
+    if request.method == "GET" and :
+        return render_template('jobs.html')
+
 
 
 if __name__ == '__main__':

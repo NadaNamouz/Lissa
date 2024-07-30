@@ -51,7 +51,7 @@ def signup():
 def login():
     if request.method == 'GET':
         if not session.get("user"):
-            return render_template("login.html")
+            return render_template("test.html")
         else:
             return redirect(url_for('index'))
 
@@ -66,7 +66,7 @@ def login():
             print(e)
     else:
         return redirect(url_for('index'))
-    return render_template('login.html')
+    return render_template('test.html')
 
 
 @app.route('/signout')
@@ -83,8 +83,10 @@ def index():
 
 @app.route('/jobs')
 def jobs():
-    if request.method == "GET" and :
+    if request.method == "GET" and session["user"] != None:
         return render_template('jobs.html')
+    else:
+        return render_template('test.html')
 
 
 

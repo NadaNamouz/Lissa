@@ -42,8 +42,6 @@ def signup():
         except Exception as e:
             print(e)
             return render_template("error.html")
-    else:
-        return render_template("index.html")
 
 
 

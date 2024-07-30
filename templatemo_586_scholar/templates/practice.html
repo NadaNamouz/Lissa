@@ -13,18 +13,96 @@
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="../assets/css/fontawesome.css">
-    <link rel="stylesheet" href="../assets/css/templatemo-scholar.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/owl.css">
     <link rel="stylesheet" href="../assets/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
 </head>
 <body>
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Lissan</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../assets/css/templatemo-scholar.css">
+    <link rel="stylesheet" href="../assets/css/owl.css">
+    <link rel="stylesheet" href="../assets/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+<!--
+
+TemplateMo 586 Scholar
+
+https://templatemo.com/tm-586-scholar
+
+-->
+</head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="/" class="logo">
+                        <h1>Lissan</h1>
+                    </a>
+                    <ul class="nav">
+                      {%if session["user"] != None%}
+                        <li class="scroll-to-section"><a href="/signout">Sign out</a></li>
+                      {%else%}
+                      <li class="scroll-to-section"><a href="/signup">Register</a></li>
+                      <li class="scroll-to-section"><a href="/login">Login</a></li>
+                      {%endif%}
+                  </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="main-banner" id="top" >
+    <div class="container"></div>
+  </div>
 <section class="section courses" id="courses" >
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
           <div class="section-heading">
-          	<center>
+            <center>
             <h2>Practice Exercises</h2>
             <h4>Stay on track!</h4>
             </center>
@@ -33,16 +111,16 @@
       </div>
       <ul class="event_filter">
         <li>
-          <a class="is_active" href="#!" data-filter="*">Show All</a>
+          <a class="is_active" href="#!" data-filter="*">Show All Levels</a>
         </li>
         <li>
-          <a href="#!" data-filter=".design">Webdesign</a>
+          <a href="#!" data-filter=".design">B</a>
         </li>
         <li>
-          <a href="#!" data-filter=".development">Development</a>
+          <a href="#!" data-filter=".development">C</a>
         </li>
         <li>
-          <a href="#!" data-filter=".wordpress">Wordpress</a>
+          <a>A (coming soon)</a>
         </li>
       </ul>
       <div class="row event_box">
@@ -50,12 +128,10 @@
           <div class="events_item">
             <div class="thumb">
               <a href="#"><img src="../assets/images/course-01.jpg" alt=""></a>
-              <span class="category">Webdesign</span>
-              <span class="price"><h6><em>$</em>160</h6></span>
+              <span class="category">B2 - B3</span>
             </div>
             <div class="down-content">
-              <span class="author">Stella Blair</span>
-              <h4>Learn Web Design</h4>
+              <h4>Practice Title</h4>
             </div>
           </div>
         </div>
@@ -63,12 +139,10 @@
           <div class="events_item">
             <div class="thumb">
               <a href="#"><img src="../assets/images/course-02.jpg" alt=""></a>
-              <span class="category">Development</span>
-              <span class="price"><h6><em>$</em>340</h6></span>
+              <span class="category">C1 - C2</span>
             </div>
             <div class="down-content">
-              <span class="author">Cindy Walker</span>
-              <h4>Web Development Tips</h4>
+              <h4>Practice Title</h4>
             </div>
           </div>
         </div>
@@ -76,12 +150,10 @@
           <div class="events_item">
             <div class="thumb">
               <a href="#"><img src="../assets/images/course-03.jpg" alt=""></a>
-              <span class="category">Wordpress</span>
-              <span class="price"><h6><em>$</em>640</h6></span>
+              <span class="category">B1 - B2</span>
             </div>
             <div class="down-content">
-              <span class="author">David Hutson</span>
-              <h4>Latest Web Trends</h4>
+              <h4>Practice Title</h4>
             </div>
           </div>
         </div>
@@ -89,12 +161,10 @@
           <div class="events_item">
             <div class="thumb">
               <a href="#"><img src="../assets/images/course-04.jpg" alt=""></a>
-              <span class="category">Development</span>
-              <span class="price"><h6><em>$</em>450</h6></span>
+              <span class="category">C2 - C3</span>
             </div>
             <div class="down-content">
-              <span class="author">Stella Blair</span>
-              <h4>Online Learning Steps</h4>
+              <h4>Practice Title</h4>
             </div>
           </div>
         </div>
@@ -102,12 +172,10 @@
           <div class="events_item">
             <div class="thumb">
               <a href="#"><img src="../assets/images/course-05.jpg" alt=""></a>
-              <span class="category">Wordpress</span>
-              <span class="price"><h6><em>$</em>320</h6></span>
+              <span class="category">C1 - C2</span>
             </div>
             <div class="down-content">
-              <span class="author">Sophia Rose</span>
-              <h4>Be a WordPress Master</h4>
+              <h4>Practice Title</h4>
             </div>
           </div>
         </div>
@@ -115,12 +183,10 @@
           <div class="events_item">
             <div class="thumb">
               <a href="#"><img src="../assets/images/course-06.jpg" alt=""></a>
-              <span class="category">Webdesign</span>
-              <span class="price"><h6><em>$</em>240</h6></span>
+              <span class="category">B2 - B3</span>
             </div>
             <div class="down-content">
-              <span class="author">David Hutson</span>
-              <h4>Full Stack Developer</h4>
+              <h4>Practice Title</h4>
             </div>
           </div>
         </div>

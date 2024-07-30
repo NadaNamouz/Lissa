@@ -41,7 +41,6 @@ def signup():
             return redirect(url_for('index'))
         except Exception as e:
             print(e)
-            return render_template("error.html")
 
 
 
@@ -62,9 +61,16 @@ def login():
             return redirect(url_for('index'))
         except Exception as e:
             print(e)
-            return render_template("error.html")
     else:
         return redirect(url_for('index'))
+
+
+@app.route('/signout')
+def signout():
+    session['user']=None
+    auth.current_user = None
+    print("signed out user")
+    return redirect(url_for('index'))
 
 @app.route('/')
 def index():
@@ -77,4 +83,4 @@ def jobs():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True ,port=3000)

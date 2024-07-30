@@ -12,7 +12,7 @@ firebaseConfig = {
     'databaseURL': "https://case-studies---lissan-default-rtdb.europe-west1.firebasedatabase.app/"
 }
 
-app = Flask(__name__, template_folder='templates', static_folder='static')
+app = Flask(__name__, template_folder='templates', static_folder='assets')
 app.config['SECRET_KEY'] = '123456'
 
 firebase = pyrebase.initialize_app(firebaseConfig)

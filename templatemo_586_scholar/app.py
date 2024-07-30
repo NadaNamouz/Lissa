@@ -33,13 +33,15 @@ def signup():
         try:
             email = request.form['email']
             password = request.form['password']
-            # firstname = request.form['firstname']
-            # lastname = request.form['lastname']
+            firstname = request.form['firstname']
+            lastname = request.form['lastname']
+            number = request.form['number']
+            age = request.form['age']
             user = auth.create_user_with_email_and_password(email, password)
             session['user'] = user
             uid = user['localId']
-            # UserInfo = {'firstname': firstname, 'lastname': lastname}
-            # db.child('users').child(uid).set(UserInfo)
+            UserInfo = {'firstname': firstname, 'lastname': lastname, 'number': number, 'age':age}
+            db.child('users').child(uid).set(UserInfo)
             return redirect(url_for('index'))
         except Exception as e:
             print(e)
@@ -51,7 +53,7 @@ def signup():
 def login():
     if request.method == 'GET':
         if not session.get("user"):
-            return render_template("test.html")
+            return render_template("login.html")
         else:
             return redirect(url_for('index'))
 
@@ -66,7 +68,7 @@ def login():
             print(e)
     else:
         return redirect(url_for('index'))
-    return render_template('test.html')
+    return render_template('login.html')
 
 
 @app.route('/signout')
@@ -86,7 +88,11 @@ def jobs():
     if request.method == "GET" and session["user"] != None:
         return render_template('jobs.html')
     else:
-        return render_template('test.html')
+        return render_template('signup.html')
+
+@app.route('/practice')
+def practice():
+    return render_template('practice.html')
 
 
 

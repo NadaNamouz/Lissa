@@ -40,8 +40,9 @@ def signup():
             UserInfo = {'firstname': firstname, 'lastname': lastname, 'phone': phone, 'age':age}
             db.child('users').child(uid).set(UserInfo)
             return render_template("index.html")
-        except Exception as e:
-            return render_template("error.html")
+        except:
+            excist = True
+            return render_template("signup.html", excist = excist)
     else:
         return render_template("index.html")
 

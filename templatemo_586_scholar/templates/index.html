@@ -354,17 +354,12 @@ https://templatemo.com/tm-586-scholar
           <div class="contact-us-content">
             <form id="contact-form" action="" method="post">
               <div class="row">
-                <form method="POST" action="/feedback"> <!-- need to make a feedback route -->
-                    <input type="text" name="name" placeholder="Your name">
+                <form method="POST" action="/"> <!-- need to make a feedback route -->
                   <div class="col-lg-12">
-                    <fieldset>
-                      <textarea name="feedback" id="message" placeholder="Your Feedback"></textarea>
-                    </fieldset>
+                      <textarea name="feedback" id="message" placeholder="Your Feedback" required></textarea>
                   </div>
                   <div class="col-lg-12">
-                    <fieldset>
-                      <button type="submit" id="form-submit" class="orange-button">Register</button>
-                    </fieldset>
+                      <button type="submit" id="form-submit" class="orange-button">Send</button>
                   </div>
                 </form>
               </div>

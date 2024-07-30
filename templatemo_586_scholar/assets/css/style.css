@@ -158,6 +158,12 @@ body {
   font-weight: 600;
 }
 
+.title{
+  margin-bottom: 70px;
+  text-align: center;
+  font-size: 80px;
+}
+
 .main-button a {
   display: inline-block;
   background-color: #fff;

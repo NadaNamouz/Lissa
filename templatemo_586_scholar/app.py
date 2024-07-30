@@ -20,19 +20,14 @@ auth = firebase.auth()
 db = firebase.database()
 
 
-@app.route('/index', methods=['POST','GET'])
-def index():
-  return render_template('index.html')
+
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'GET':
-        if not session.get("user"):
-            return render_template("signup.html")
-        else:
-            return redirect(url_for('index'))
-
-    elif request.method == 'POST':
+        return render_template("signup.html")
+    elif request.method == "POST":
         try:
+            print('signup')
             email = request.form['email']
             password = request.form['password']
             # firstname = request.form['firstname']
@@ -42,16 +37,19 @@ def signup():
             uid = user['localId']
             # UserInfo = {'firstname': firstname, 'lastname': lastname}
             # db.child('users').child(uid).set(UserInfo)
+            print('new page')
             return redirect(url_for('index'))
         except Exception as e:
             print(e)
             return render_template("error.html")
     else:
-        return redirect(url_for('index'))
+        return render_template("index.html")
+
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == 'GET':
+    if request.method == 'GET' and session["user"] == None:
         if not session.get("user"):
             return render_template("login.html")
         else:

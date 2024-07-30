@@ -23,40 +23,34 @@ db = firebase.database()
   
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    if request.method == 'GET':
-        if not session.get("user"):
-            return render_template("signup.html")
-        else:
-            return redirect(url_for('index'))
-
+    if request.method == 'GET' and session["user"] == None:
+        return render_template("signup.html")
     elif request.method == 'POST':
         try:
+            print("hello world")
             email = request.form['email']
             password = request.form['password']
             firstname = request.form['firstname']
             lastname = request.form['lastname']
-            number = request.form['number']
+            phone = request.form['phone']
             age = request.form['age']
             user = auth.create_user_with_email_and_password(email, password)
             session['user'] = user
             uid = user['localId']
-            UserInfo = {'firstname': firstname, 'lastname': lastname, 'number': number, 'age':age}
+            UserInfo = {'firstname': firstname, 'lastname': lastname, 'phone': phone, 'age':age}
             db.child('users').child(uid).set(UserInfo)
-            return redirect(url_for('index'))
+            return render_template("index.html")
         except Exception as e:
-            print(e)
+            return render_template("error.html")
     else:
-        return redirect(url_for('index'))
-    return render_template('signup.html')
+        return render_template("index.html")
+
+    
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == 'GET':
-        if not session.get("user"):
-            return render_template("login.html")
-        else:
-            return redirect(url_for('index'))
-
+    if request.method == 'GET' and session["user"] == None:
+        return render_template("login.html")       
     elif request.method == 'POST':
         try:
             email = request.form['email']
@@ -68,7 +62,6 @@ def login():
             print(e)
     else:
         return redirect(url_for('index'))
-    return render_template('login.html')
 
 
 @app.route('/signout')

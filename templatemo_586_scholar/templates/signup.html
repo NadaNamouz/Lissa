@@ -85,10 +85,19 @@ https://templatemo.com/tm-586-scholar
           <div class="contact-us-content">
             <form id="contact-form" method="POST" action="/signup">
               <div class="row">
-                      <input type="email" name="email" id="email" placeholder="E-mail">
-                      <input type="password" name="password" id="password" placeholder="Password">
-                      <input type="text" name="firstname" id="firstname" placeholder="First Name">
-                      <input type="text" name="lastname" id="lastname" placeholder="Last Name">
+                  <input type="email" name="email" id="email" placeholder="E-mail" required>
+                  <input type="password" name="password" id="password" placeholder="Password" required>
+                  <input type="text" name="firstname" id="firstname" placeholder="First Name" required>
+                  <input type="text" name="lastname" id="lastname" placeholder="Last Name" required>
+                  <input type="tel" name="phone" id="phone" pattern="0[5/3]{1}[0-9]{8+}" placeholder="Phone number" required>
+                  <div class="custom-select">
+                    <select id="age" name="age">
+                      <option value="level-1">15-18</option>
+                      <option value="level-2">18-24</option>
+                      <option value="level-3">25-30</option>
+                      <option value="level-4">30-45</option>
+                      <option value="level-5">45+</option>                       
+                    </select>
                   </div>
                   <div class="col-lg-12">
                       <button type="submit" id="form-submit" class="orange-button">Signup</button>

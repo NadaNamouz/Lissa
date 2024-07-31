@@ -24,23 +24,21 @@ db = firebase.database()
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    if request.method == "POST":
+    if request.method == "GET":
+        return render_template ("index.html")
+    else:
         if session["user"] != None:
             feedback = request.form['feedback']
             uid = session['user']['localId']
 
-            ref = db.child("users").child(uid).get().val()
-
-            firstname = ref['firstname']
-            lastname = ref['lastname']
-
-            UserInfo = {'firstname': firstname, 'lastname': lastname, 'feedback': feedback}
-            db.child('feedbacks').child(uid).set(UserInfo)
+            New_feedlist = db.child('users').child(uid).child('feedlist').get().val()
+            New_feedlist.append(feedback)
+            db.child('users').child(uid).update({"feedlist":New_feedlist})
             return render_template("index.html")
         else:
             return render_template('login.html')
 
-    return render_template ("index.html")
+    
   
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -55,10 +53,11 @@ def signup():
             lastname = request.form['lastname']
             phone = request.form['phone']
             age = request.form['age']
+            feedlist = [""]
             user = auth.create_user_with_email_and_password(email, password)
             session['user'] = user
             uid = user['localId']
-            UserInfo = {'firstname': firstname, 'lastname': lastname, 'phone': phone, 'age':age}
+            UserInfo = {'firstname': firstname, 'lastname': lastname, 'phone': phone, 'age':age, 'feedlist':feedlist}
             db.child('users').child(uid).set(UserInfo)
             return render_template("index.html")
         except:
@@ -102,21 +101,6 @@ def jobs():
     else:
         return render_template('login.html')
 
-
-
-@app.route('/feedback',methods=['GET', 'POST'])
-def feedback():
-    print("im in feedback route")
-    if request.method == "POST":
-        if session["user"] != None:
-            feedback = request.form['feedback']
-            uid = user['localId']
-            UserInfo = {'firstname': firstname, 'lastname': lastname, 'feedback': feedback}
-            db.child('feedbacks').child(uid).set(UserInfo)
-            return render_template("index.html")
-        else:
-            return render_template('login.html')
-    
 
 
 @app.route('/practice')

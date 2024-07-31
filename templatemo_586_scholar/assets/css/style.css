@@ -673,21 +673,19 @@ Banner Style
 */
 
 .main-banner {
-  background-image: url(../images/banner.jpg);
-  background-position: right bottom;
+  background-color: #7b6ada; /* Light purple color */
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 70px 0px 50px 0px;
+  border-radius: 0px; /* Rectangular shape */
 }
 
-
 .main-banner .item {
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  border-radius: 25px;
+  background-color: #f1f0fe; /* Slightly lighter shade for contrast */
   padding: 100px 100px;
   margin-left: 130px;
+  border-radius: 0px; /* Keep rectangular shape */
 }
 
 .main-banner .item span.category {
@@ -787,8 +785,6 @@ Banner Style
   opacity: 1;
   background-color: rgba(255, 255, 255, 0.5);
 }
-
-
 /* 
 ---------------------------------------------
 Services Style
@@ -843,6 +839,7 @@ Services Style
   color: #4a4a4a;
   margin-bottom: 25px;
 }
+
 
 /* 
 ---------------------------------------------

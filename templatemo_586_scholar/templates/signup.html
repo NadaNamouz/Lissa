@@ -15,7 +15,7 @@
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="../assets/css/fontawesome.css">
-    <link rel="stylesheet" href="../assets/css/templatemo-scholar.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/owl.css">
     <link rel="stylesheet" href="../assets/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
@@ -54,12 +54,7 @@ https://templatemo.com/tm-586-scholar
                         <h1>Lissan</h1>
                     </a>
                     <ul class="nav">
-                      {%if session["user"] != None%}
-                        <li class="scroll-to-section"><a href="/signout">Sign out</a></li>
-                      {%else%}
-                      <li class="scroll-to-section"><a href="/signup">Register</a></li>
-                      <li class="scroll-to-section"><a href="/login">Login</a></li>
-                      {%endif%}
+                      <li class="scroll-to-section"><a href="/">Home</a></li>
                   </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -70,18 +65,17 @@ https://templatemo.com/tm-586-scholar
         </div>
     </div>
   </header>
-  <!-- ***** Header Area End ***** -->
 
   <div class="main-banner" id="top">
-    <div class="container">
-     
-    </div>
+    <div class="container"></div>
   </div>
+  <!-- ***** Header Area End ***** -->
+
   <div class="contact-us section" id="contact">
     <div class="container">
       <div class="row">
         <center>
-        <h1 class="title">Sign up</h1>
+        <h1>Sign up</h1><br>
         <div class="col-lg-6">
           <div class="contact-us-content">
             <form id="contact-form" method="POST" action="/signup">
@@ -95,7 +89,7 @@ https://templatemo.com/tm-586-scholar
                   <input type="password" name="password" id="password" placeholder="Password" required>
                   <input type="text" name="firstname" id="firstname" placeholder="First Name" required>
                   <input type="text" name="lastname" id="lastname" placeholder="Last Name" required>
-                  <input type="tel" name="phone" id="phone" pattern="0[5/3]{1}[0-9]{8+}" placeholder="Phone number" required>
+                  <input type="tel" name="phone" id="phone" pattern="0[5/3]{1}[0-9]{8+}" placeholder="Phone number" required><br>
                   <div class="custom-select">
                     <select id="age" name="age">
                       <option value="level-1">15-18</option>
@@ -104,7 +98,7 @@ https://templatemo.com/tm-586-scholar
                       <option value="level-4">30-45</option>
                       <option value="level-5">45+</option>                       
                     </select>
-                  </div>
+                  </div><br><br>
                   <div class="col-lg-12">
                       <button type="submit" id="form-submit" class="orange-button">Signup</button>
                   </div>

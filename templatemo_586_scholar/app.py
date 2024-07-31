@@ -67,6 +67,7 @@ def signup():
     else:
         return render_template("index.html")
 
+
     
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -121,6 +122,8 @@ def feedback():
 @app.route('/practice')
 def practice():
     return render_template('practice.html')
+
+
 
 if __name__ == '__main__':
     app.run(debug=True ,port=3000)

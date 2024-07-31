@@ -673,19 +673,19 @@ Banner Style
 */
 
 .main-banner {
-  background-color: #7b6ada; /* Light purple color */
+  background-color: #7b6ada; 
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 70px 0px 50px 0px;
-  border-radius: 0px; /* Rectangular shape */
+  border-radius: 0px; 
 }
 
 .main-banner .item {
-  background-color: #f1f0fe; /* Slightly lighter shade for contrast */
+  background-color: #f1f0fe; 
   padding: 100px 100px;
   margin-left: 130px;
-  border-radius: 0px; /* Keep rectangular shape */
+  border-radius: 0px; 
 }
 
 .main-banner .item span.category {

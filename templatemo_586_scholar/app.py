@@ -44,7 +44,7 @@ def index():
   
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    if request.method == 'GET' and session["user"] == None:
+    if request.method == 'GET':
         return render_template("signup.html")
     elif request.method == 'POST':
         try:
@@ -54,15 +54,17 @@ def signup():
             firstname = request.form['firstname']
             lastname = request.form['lastname']
             phone = request.form['phone']
-            age = requeast.form['age']
-            feedlist = ["ada"]
+            age = request.form['age']
+            feedlist = [""]
             user = auth.create_user_with_email_and_password(email, password)
+            print('user created')
             session['user'] = user
-            uid = user['localId']
+            uid = session['user']['localId']
             UserInfo = {'firstname': firstname, 'lastname': lastname, 'phone': phone, 'age':age, 'feedlist':feedlist}
             db.child('users').child(uid).set(UserInfo)
             return render_template("index.html")
-        except:
+        except Exception as e:
+            print(e)
             excist = True
             return render_template("signup.html", excist = excist)
     else:

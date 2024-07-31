@@ -32,11 +32,14 @@ def index():
             uid = session['user']['localId']
 
             New_feedlist = db.child('users').child(uid).child('feedlist').get().val()
+            print('please help me meow')
+            print(New_feedlist)
             New_feedlist.append(feedback)
             db.child('users').child(uid).update({"feedlist":New_feedlist})
             return render_template("index.html")
         else:
             return render_template('login.html')
+    return render_template('index.html')
 
     
   
@@ -52,8 +55,8 @@ def signup():
             firstname = request.form['firstname']
             lastname = request.form['lastname']
             phone = request.form['phone']
-            age = request.form['age']
-            feedlist = [""]
+            age = requeast.form['age']
+            feedlist = ["ada"]
             user = auth.create_user_with_email_and_password(email, password)
             session['user'] = user
             uid = user['localId']
